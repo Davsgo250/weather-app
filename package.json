@@ -1,5 +1,5 @@
 {
-    "name": "template",
+    "name": "Weather App",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
@@ -13,16 +13,16 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/Davsgo250/template.git"
+        "url": "git+https://github.com/Davsgo250/weather-app.git"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "type": "module",
     "bugs": {
-        "url": "https://github.com/Davsgo250/template/issues"
+        "url": "https://github.com/Davsgo250/weather-app/issues"
     },
-    "homepage": "https://github.com/Davsgo250/template#readme",
+    "homepage": "https://github.com/Davsgo250/weather-app#readme",
     "devDependencies": {
         "@babel/preset-env": "^7.29.2",
         "@eslint/css": "^1.0.0",
