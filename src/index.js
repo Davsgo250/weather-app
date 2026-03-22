@@ -1,3 +1,5 @@
+import './styles.css';
+
 const searchWeather = document.querySelector('#searchWeather');
 const searchCity = document.querySelector('#searchCity');
 
