@@ -12,9 +12,23 @@ searchWeather.addEventListener('click', async () => {
             throw new Error(`Response status: ${response.status}`);
         }
         const result = await response.json();
-        console.log(result);
+        showTemp(result);
     } catch (error) {
         console.error('Fetch failed:', error);
         console.log('Could not find that city or the service is down.');
     }
 });
+
+function showTemp(apiInfo) {
+    console.log(apiInfo);
+    console.log(`Today Temp: ${apiInfo.currentConditions.temp} - Humidity: ${apiInfo.currentConditions.humidity}`);
+    for (const day in apiInfo.days) {
+        if (!Object.hasOwn(apiInfo.days, day)) continue;
+
+        const element = apiInfo.days[day];
+        console.log(element);
+        console.log(
+            `Date: ${element.datetime} - Temp: ${element.temp} - Humidity: ${element.humidity} - Condition: ${element.conditions}`
+        );
+    }
+}
