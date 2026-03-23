@@ -76,7 +76,8 @@ main {
 
 main .mainCard {
     background-color: rgba(255, 255, 255, 0.8);
-    width: 60rem;
+    width: 80rem;
+    height: auto;
     padding: 2rem;
     border-radius: 1rem;
     font-size: 2.5rem;
@@ -93,6 +94,7 @@ main .mainCard {
 main .mainCard .mainDayInfo {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    grid-row-gap: 1rem;
     font-size: 2rem;
     justify-items: center;
     align-items: center;
@@ -115,13 +117,12 @@ main .mainDayInfo .tempMoreInfo {
 
 main .daysCards {
     width: 60vw;
-    display: flex;
-    justify-content: space-around;
-    gap: 5rem;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-column-gap: 2rem;
 }
 
 main .daysCards .card {
-    flex: 1;
     background-color: rgba(255, 255, 255, 0.6);
     height: 20rem;
     display: flex;
