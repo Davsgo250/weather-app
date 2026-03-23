@@ -39,7 +39,7 @@ main {
     flex: 1 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 3rem; /* Use gap instead of space-around for consistent spacing */
+    gap: 5rem; /* Use gap instead of space-around for consistent spacing */
     padding: 2rem 0;
     align-items: center;
 }
@@ -95,7 +95,7 @@ main .mainCard {
 }
 
 main .mainCard .mainDayInfo {
-display: flex; /* Switch from grid to flex */
+    display: flex; /* Switch from grid to flex */
     flex-wrap: wrap; /* Allows cards to move to the next row */
     justify-content: center; /* This centers the cards on every row */
     align-items: center;
@@ -107,7 +107,7 @@ main .mainCard .mainDayInfo img {
     width: 20rem;
 }
 
-main .mainCard .tempInfo{
+main .mainCard .tempInfo {
     min-width: 20rem;
     min-height: 20rem;
     display: flex;

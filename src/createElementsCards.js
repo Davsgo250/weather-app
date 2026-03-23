@@ -1,6 +1,7 @@
 import { getWeatherIcon } from './chooseWeatherImage.js';
 const mainCard = document.querySelector('.mainCard');
-const cards = document.querySelectorAll('.card');
+const cardsNodeList = document.querySelectorAll('.card');
+const cardsArray = [...cardsNodeList];
 
 function makeElement(tag, options = {}) {
     const element = document.createElement(tag);
@@ -36,15 +37,18 @@ function makeElement(tag, options = {}) {
 
 function createMainCard(city, info) {
     mainCard.replaceChildren();
+
     const condition = info.conditions || 'Clear';
     const imageSrc = getWeatherIcon(condition);
+
     mainCard.appendChild(makeElement('h2', { text: city.charAt(0).toUpperCase() + city.slice(1) }));
+
     const mainCardInfo = makeElement('div', { className: ['mainDayInfo'] });
     const imgCard = makeElement('div', {
         className: ['imageMainInfo'],
         childs: [
             makeElement('img', {
-                attributes: { src: imageSrc, alt: 'iconWeatherMain' },
+                attributes: { src: imageSrc, alt: 'Icon of the weather condition' },
             }),
         ],
     });
@@ -72,15 +76,36 @@ function createMainCard(city, info) {
     mainCard.appendChild(mainCardInfo);
 }
 
-function createDaysCards(city, info) {
-    console.log(info);
-    console.log('Creating Days Cards...');
-    console.log(cards);
+function createDaysCards(info) {
+    for (const card of cardsArray) {
+        card.replaceChildren();
+
+        const index = cardsArray.indexOf(card);
+        const dayTempInfo = info[`${index}`];
+
+        const dayName = getDate(dayTempInfo.datetime);
+        const imageWeather = getWeatherIcon(dayTempInfo.conditions);
+        const temp = `${dayTempInfo.temp}°C`;
+
+        card.appendChild(makeElement('p', { className: ['day'], text: dayName }));
+        card.appendChild(
+            makeElement('img', { attributes: { src: imageWeather, alt: 'Icon of the weather condition' } })
+        );
+        card.appendChild(makeElement('p', { className: ['temp'], text: temp }));
+    }
+}
+
+function getDate(dateStr) {
+    const apiDate = dateStr;
+    const parts = apiDate.split('-');
+    const dateInfo = new Date(parts[0], parts[1] - 1, parts[2]);
+    const dayName = dateInfo.toLocaleDateString('en-US', { weekday: 'short' });
+    return dayName;
 }
 
 function createCards(city, info) {
     createMainCard(city, info.currentConditions);
-    createDaysCards(city, info.days);
+    createDaysCards(info.days);
 }
 
 export { createCards };

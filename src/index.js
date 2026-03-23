@@ -10,6 +10,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 
 const searchWeather = document.querySelector('#searchWeather');
 const searchCity = document.querySelector('#searchCity');
+const unitGroup = 'metric';
 
 const API_KEY = 'PRMFJGHZHPBV2Q8ZB9S6B9RDM';
 
@@ -20,7 +21,7 @@ searchWeather.addEventListener('click', async () => {
 });
 
 async function getWeatherInfo(city) {
-    const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}}?key=${API_KEY}`;
+    const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}}?key=${API_KEY}&unitGroup=${unitGroup}`;
     try {
         const response = await fetch(url);
         if (!response.ok) {
