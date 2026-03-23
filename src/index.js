@@ -13,7 +13,7 @@ const searchCity = document.querySelector('#searchCity');
 
 const API_KEY = 'PRMFJGHZHPBV2Q8ZB9S6B9RDM';
 
-searchWeather.addEventListener('click', async() => {
+searchWeather.addEventListener('click', async () => {
     const city = searchCity.value || 'london';
     const result = await getWeatherInfo(city);
     createCards(city, result);

@@ -17,10 +17,10 @@ body {
     background: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url('./images/background.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
+    gap: 5rem;
     flex-direction: column;
-    justify-content: space-between;
 }
 
 /* ---------- HEADER -----------*/
@@ -36,16 +36,18 @@ header {
 
 /* ---------- MAIN -----------*/
 main {
-    flex: 2;
+    flex: 1 0 auto;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    gap: 3rem; /* Use gap instead of space-around for consistent spacing */
+    padding: 2rem 0;
     align-items: center;
 }
 
 .searchSection {
     background-color: white;
-    width: 50rem;
+    width: 90%;
+    max-width: 50rem;
     height: 5rem;
     display: flex;
     justify-content: space-around;
@@ -67,7 +69,7 @@ main {
 }
 
 .searchSection button {
-    width: 15%;
+    width: 20%;
     border-radius: 10rem;
     background-color: #53b586;
     color: #fff;
@@ -76,7 +78,8 @@ main {
 
 main .mainCard {
     background-color: rgba(255, 255, 255, 0.8);
-    width: 80rem;
+    width: 90%;
+    max-width: 80rem;
     height: auto;
     padding: 2rem;
     border-radius: 1rem;
@@ -92,16 +95,26 @@ main .mainCard {
 }
 
 main .mainCard .mainDayInfo {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-row-gap: 1rem;
-    font-size: 2rem;
-    justify-items: center;
+display: flex; /* Switch from grid to flex */
+    flex-wrap: wrap; /* Allows cards to move to the next row */
+    justify-content: center; /* This centers the cards on every row */
     align-items: center;
+    gap: 2rem; /* Keeps the spacing consistent */
+    font-size: 2rem;
 }
 
 main .mainCard .mainDayInfo img {
-    width: 100%;
+    width: 20rem;
+}
+
+main .mainCard .tempInfo{
+    min-width: 20rem;
+    min-height: 20rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
 }
 
 main .mainDayInfo #temp {
@@ -109,21 +122,27 @@ main .mainDayInfo #temp {
 }
 
 main .mainDayInfo .tempMoreInfo {
-    text-align: start;
+    min-width: 20rem;
+    min-height: 20rem;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1rem;
 }
 
 main .daysCards {
-    width: 60vw;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-column-gap: 2rem;
+    width: 90%; /* Changed from 60vw for better responsiveness */
+    max-width: 150rem; /* Optional: keeps the grid from getting too wide */
+    display: flex; /* Switch from grid to flex */
+    flex-wrap: wrap; /* Allows cards to move to the next row */
+    justify-content: center; /* This centers the cards on every row */
+    gap: 2rem; /* Keeps the spacing consistent */
 }
 
 main .daysCards .card {
     background-color: rgba(255, 255, 255, 0.6);
+    flex: 0 1 200px; /* Instead of grid-template, we set a base width */
     height: 20rem;
     display: flex;
     flex-direction: column;
